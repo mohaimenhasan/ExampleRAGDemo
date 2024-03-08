@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp1
+﻿namespace ConsoleApp1
 {
     public class Person
     {
-        public Person(string name) 
-        { 
-            this.Name = name;
+        public static List<Person> CreateGroupOfPeople()
+        {
+            List<Person> people = new List<Person>();
+            people.Add(new Person("John", 25));
+            people.Add(new Person("Jane", 30));
+            people.Add(new Person("Joe", 35));
+            people.Add(new Person("Jill", 40));
+            people.Add(new Person("Jack", 45));
+            return people;
         }
 
-        public Person(string name, int age) 
+        private Person(string name, int age) 
         {
             this.Name = name;
             this.Age = age;
         }
 
-        public string Name { get; set; }
+        internal string Name { get; private set; }
 
-        public int Age { get; set; }
+        internal int Age { get; private set; }
     }
 }

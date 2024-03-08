@@ -1,29 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp1
+﻿namespace ConsoleApp1
 {
     public class Team
     {
         private List<Person> people;
 
-        public Team(List<Person> people)
+        public Team()
         {
-            this.people = people;
+            this.people = Person.CreateGroupOfPeople();
         }
 
-        public IEnumerable<Person> GetTeammatesByAge(int minAge, int maxAge)
+        // return the oldest person in the group
+        public static Person GetOldestPerson(Team team)
         {
-            foreach (Person person in this.people)
+            List<Person> people = team.GetPeople();
+            Person oldestPerson = people[0];
+            foreach (Person person in people)
             {
-                if (person.Age >= minAge && person.Age <= maxAge)
+                if (person.Age > oldestPerson.Age)
                 {
-                    yield return person;
+                    oldestPerson = person;
                 }
             }
+            return oldestPerson;
+        }
+
+        internal List<Person> GetPeople()
+        {
+            return people;
         }
     }
 }
