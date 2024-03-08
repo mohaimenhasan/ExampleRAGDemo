@@ -4,9 +4,9 @@
     {
         private List<Person> people;
 
-        public Team()
+        public Team(List<Person> people)
         {
-            this.people = Person.CreateGroupOfPeople();
+            this.people = people;
         }
 
         // return the oldest person in the group

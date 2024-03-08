@@ -4,12 +4,14 @@
     {
         public static List<Person> CreateGroupOfPeople()
         {
-            List<Person> people = new List<Person>();
-            people.Add(new Person("John", 25));
-            people.Add(new Person("Jane", 30));
-            people.Add(new Person("Joe", 35));
-            people.Add(new Person("Jill", 40));
-            people.Add(new Person("Jack", 45));
+            List<Person> people = new()
+            {
+                new Person("John", 25),
+                new Person("Jane", 30),
+                new Person("Joe", 35),
+                new Person("Jill", 40),
+                new Person("Jack", 45)
+            };
             return people;
         }
 
